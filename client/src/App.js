@@ -34,7 +34,6 @@ const App = () => {
     }
 
     store.dispatch(loadUser());
-    console.log("tried to load user");
   }, []);
 
   return (
@@ -43,14 +42,18 @@ const App = () => {
         <Fragment>
           <Navbar />
           <Routes>
-            <Route exact path="/" element={<Landing />} />
+            <Route path="/" element={<Landing />} />
           </Routes>
           <section className="container">
             <Alert />
             <Routes>
-              <Route exact path="register" element={<Register />} />
-              <Route exact path="login" element={<Login />} />
-              <PrivateRoute exact path="dashboard" element={<Dashboard />} />
+              <Route path="register" element={<Register />} />
+              <Route path="login" element={<Login />} />
+              {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+              <Route
+                path="dashboard"
+                element={<PrivateRoute component={Dashboard} />}
+              />
             </Routes>
           </section>
         </Fragment>
