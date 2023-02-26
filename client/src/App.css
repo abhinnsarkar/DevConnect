@@ -488,6 +488,12 @@ button {
   margin-bottom: 0.5rem;
 }
 
+.alignIconAndText {
+  vertical-align: middle;
+  font-size: 30px;
+  line-height: 50px;
+}
+
 /* Mobile Styles */
 @media (max-width: 700px) {
   .container {

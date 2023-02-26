@@ -74,9 +74,18 @@ router.post(
     if (bio) profileFields.bio = bio;
     if (status) profileFields.status = status;
     if (githubusername) profileFields.githubusername = githubusername;
+    console.log("skills are", typeof skills);
+    console.log("skills are", skills);
     if (skills) {
+      console.log("inside if");
       profileFields.skills = skills.split(",").map((skill) => skill.trim());
+      // profileFields.skills = skills.forEach((skill) => {
+      //   map((skill) => skill.trim());
+      // });
+
+      // profileFields.skills = skills.map((skill) => skill.trim());
     }
+    console.log("profile skills ", profileFields.skills);
     // Build Social Object
     profileFields.social = {};
     if (youtube) profileFields.social.youtube = youtube;
