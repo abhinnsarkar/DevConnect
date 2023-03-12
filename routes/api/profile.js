@@ -60,6 +60,7 @@ router.post(
       twitter,
       instagram,
       linkedin,
+      tiktok,
     } = req.body;
 
     // console.log(req.body);
@@ -74,18 +75,24 @@ router.post(
     if (bio) profileFields.bio = bio;
     if (status) profileFields.status = status;
     if (githubusername) profileFields.githubusername = githubusername;
-    console.log("skills are", typeof skills);
-    console.log("skills are", skills);
+    // console.log("--------------------------");
+    // console.log("skills are", typeof skills);
+    // console.log("skills are", skills);
     if (skills) {
-      console.log("inside if");
-      profileFields.skills = skills.split(",").map((skill) => skill.trim());
-      // profileFields.skills = skills.forEach((skill) => {
-      //   map((skill) => skill.trim());
-      // });
-
-      // profileFields.skills = skills.map((skill) => skill.trim());
+      if (typeof skills == "object") {
+        // profileFields.skills = skills.forEach((skill) => {
+        //   map((skill) => skill.trim());
+        // });
+        profileFields.skills = skills.map((skill) => skill.trim());
+        // console.log("--------------------------");
+      } else {
+        if (typeof skills == "string") {
+          profileFields.skills = skills.split(",").map((skill) => skill.trim());
+          // console.log("--------------------------");
+        }
+      }
     }
-    console.log("profile skills ", profileFields.skills);
+    // console.log("profile skills ", profileFields.skills);
     // Build Social Object
     profileFields.social = {};
     if (youtube) profileFields.social.youtube = youtube;
@@ -93,6 +100,7 @@ router.post(
     if (facebook) profileFields.social.facebook = facebook;
     if (linkedin) profileFields.social.linkedin = linkedin;
     if (instagram) profileFields.social.instagram = instagram;
+    if (tiktok) profileFields.social.tiktok = tiktok;
 
     try {
       let profile = await Profile.findOne({ user: req.user.id });
@@ -146,7 +154,7 @@ router.get("/user/:user_id", async (req, res) => {
     res.json(profile);
   } catch (err) {
     console.error(err.message);
-    console.log(err.kind);
+    // console.log(err.kind);
     if (err.kind == "ObjectId") {
       return res.status(400).json({ msg: "Profile not found" });
     } else {
@@ -159,6 +167,7 @@ router.get("/user/:user_id", async (req, res) => {
 // @desc   Delete profile, user, and posts
 // @access Private
 router.delete("/", auth, async (req, res) => {
+  // console.log("inside the delete route");
   try {
     // @todo - remove user's posts
 

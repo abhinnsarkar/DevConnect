@@ -91,7 +91,7 @@ const AddEducation = ({ addEducation }) => {
                 toggleDisabled(!toDateDisabled);
               }}
             />{" "}
-            Currently attending
+            Current School?
           </p>
         </div>
         <div className="form-group">

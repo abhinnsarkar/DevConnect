@@ -8,6 +8,21 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const authLinks = (
     <ul>
       <li>
+        <Link to="/profiles">
+          <i className="fa-solid fa-people-group"></i>{" "}
+          <span className="hide-sm">Profiles</span>
+        </Link>
+      </li>
+      <li>
+        <Link to="/posts">
+          {/* <i className="fa-solid fa-people-group"></i>{" "} */}
+          {/* <i className="fa-duotone fa-messages"></i>{" "} */}
+          <i className="fa-solid fa-messages"></i>{" "}
+          {/* <i className="fas fa-regular fa-messages"></i>{" "} */}
+          <span className="hide-sm">Posts</span>
+        </Link>
+      </li>
+      <li>
         <Link to="/dashboard">
           <i className="fas fa-user"> </i>{" "}
           <span className="hide-sm">Dashboard</span>
@@ -25,7 +40,11 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
   const guestLinks = (
     <ul>
       <li>
-        <a href="#!">Developers</a>
+        <Link to="/profiles">
+          {/* <i className="fas fa-user"> </i>{" "} */}
+          <i className="fa-solid fa-people-group"></i>{" "}
+          <span className="hide-sm">Profiles</span>
+        </Link>
       </li>
       <li>
         <Link to="/register">Register</Link>

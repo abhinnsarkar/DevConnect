@@ -11,8 +11,13 @@ import Register from "./components/auth/Register";
 
 import Dashboard from "./components/dashboard/Dashboard";
 
+import ProfileForm from "./components/profile-forms/ProfileForm";
 import CreateProfile from "./components/profile-forms/CreateProfile";
 import EditProfile from "./components/profile-forms/EditProfile";
+import Profiles from "./components/profiles/Profiles";
+import Profile from "./components/profile/Profile";
+
+import Posts from "./components/posts/Posts";
 
 import AddExperience from "./components/profile-forms/AddExperience";
 import AddEducation from "./components/profile-forms/AddEducation";
@@ -55,18 +60,25 @@ const App = () => {
             <Routes>
               <Route path="/register" element={<Register />} />
               <Route path="/login" element={<Login />} />
-              {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+              <Route path="/profiles" element={<Profiles />} />
+              <Route path="/profile/:id" element={<Profile />} />
+              {/* <Route
+                path="/profile/:id"
+                render={(props) => <Profile {...props} />}
+              /> */}
               <Route
                 path="/dashboard"
                 element={<PrivateRoute component={Dashboard} />}
               />
               <Route
                 path="/create-profile"
-                element={<PrivateRoute component={CreateProfile} />}
+                // element={<PrivateRoute component={CreateProfile} />}
+                element={<PrivateRoute component={ProfileForm} />}
               />
               <Route
                 path="/edit-profile"
-                element={<PrivateRoute component={EditProfile} />}
+                // element={<PrivateRoute component={EditProfile} />}
+                element={<PrivateRoute component={ProfileForm} />}
               />
               <Route
                 path="/add-experience"
@@ -75,6 +87,10 @@ const App = () => {
               <Route
                 path="/add-education"
                 element={<PrivateRoute component={AddEducation} />}
+              />
+              <Route
+                path="/posts"
+                element={<PrivateRoute component={Posts} />}
               />
             </Routes>
           </section>
