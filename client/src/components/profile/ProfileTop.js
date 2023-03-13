@@ -24,7 +24,8 @@ const ProfileTop = ({
       <div className="icons my-1">
         {website && (
           <a href={website} target="_blank" rel="noopener noreferrer">
-            <i className="fas fa-globe fa-2x"></i>
+            {/* <i className="fas fa-globe fa-2x"></i> */}
+            <i class="fas fa-solid fa-link fa-2x"></i>
           </a>
         )}
         {social && social.twitter && (
