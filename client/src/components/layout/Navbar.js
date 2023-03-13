@@ -15,10 +15,7 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
       </li>
       <li>
         <Link to="/posts">
-          {/* <i className="fa-solid fa-people-group"></i>{" "} */}
-          {/* <i className="fa-duotone fa-messages"></i>{" "} */}
-          <i className="fa-solid fa-messages"></i>{" "}
-          {/* <i className="fas fa-regular fa-messages"></i>{" "} */}
+          <i className="fa-solid fa-pen-to-square"></i>{" "}
           <span className="hide-sm">Posts</span>
         </Link>
       </li>

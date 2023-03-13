@@ -15,6 +15,7 @@ import ProfileForm from "./components/profile-forms/ProfileForm";
 import Profiles from "./components/profiles/Profiles";
 import Profile from "./components/profile/Profile";
 
+import Post from "./components/post/Post";
 import Posts from "./components/posts/Posts";
 
 import AddExperience from "./components/profile-forms/AddExperience";
@@ -60,10 +61,7 @@ const App = () => {
               <Route path="/login" element={<Login />} />
               <Route path="/profiles" element={<Profiles />} />
               <Route path="/profile/:id" element={<Profile />} />
-              {/* <Route
-                path="/profile/:id"
-                render={(props) => <Profile {...props} />}
-              /> */}
+
               <Route
                 path="/dashboard"
                 element={<PrivateRoute component={Dashboard} />}
@@ -89,6 +87,10 @@ const App = () => {
               <Route
                 path="/posts"
                 element={<PrivateRoute component={Posts} />}
+              />
+              <Route
+                path="/posts/:id"
+                element={<PrivateRoute component={Post} />}
               />
             </Routes>
           </section>
