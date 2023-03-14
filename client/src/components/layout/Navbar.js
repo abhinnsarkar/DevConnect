@@ -44,11 +44,12 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </Link>
       </li>
       <li>
-        <i className="fa-solid fa-user-plus"></i>{" "}
+        <i className="fa-solid fa-user-plus"></i>
         <Link to="/register">Register</Link>
       </li>
       <li>
-        <i className="fa-solid fa-user"></i> <Link to="/login">Login</Link>
+        <i className="fa-solid fa-user"></i>
+        <Link to="/login">Login</Link>
       </li>
     </ul>
   );
