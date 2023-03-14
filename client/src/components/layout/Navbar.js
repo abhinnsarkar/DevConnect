@@ -44,12 +44,16 @@ const Navbar = ({ auth: { isAuthenticated, loading }, logout }) => {
         </Link>
       </li>
       <li>
-        <i className="fa-solid fa-user-plus"></i>
-        <Link to="/register">Register</Link>
+        <Link to="/register">
+          <i className="fa-solid fa-user-plus"></i> <span>Register</span>
+        </Link>
       </li>
       <li>
-        <i className="fa-solid fa-user"></i>
-        <Link to="/login">Login</Link>
+        {/* <i className="fa-solid fa-user"></i> */}
+        {/* <Link to="/login">Login</Link> */}
+        <Link to="/login">
+          <i className="fa-solid fa-user"></i> <span>Login</span>
+        </Link>
       </li>
     </ul>
   );
